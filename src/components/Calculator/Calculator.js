@@ -2,17 +2,53 @@ import { Card, CardContent, CardMedia, Grid, Slider, Typography } from '@mui/mat
 import { Box } from '@mui/system';
 import React from 'react';
 import { CgCalculator } from 'react-icons/cg';
+import DisplayCalculator from '../DisplayCalculator/DisplayCalculator';
 
 
-function valuetext(value) {
-    return `${value}°C`;
-}
+const inputValue = [
+
+    {
+        price: '$5.01',
+        sellPrice: '$6.01',
+        Qty: '1',
+        BQty: '1',
+        discount: '0.00%'
+    }
+
+]
+
+
+
 
 const Calculator = () => {
     return (
-        
-       <Box>
-           <Card sx={{ border: 1, borderColor: 'grey.500', borderRadius: 4, marginTop: 1, height: '220px'}}>
+
+        <Box>
+            <Card sx={{ border: 1, borderColor: 'grey.500', borderRadius: 4, marginTop: 1, height: '220px' }}>
+                <CardContent>
+
+                    <Box>
+                        <Typography variant="body1" color="secondary" sx={{ fontWeight: 'bold', }}  >
+                            Calculator
+                        </Typography>
+                        <Box >
+                            <Grid container spacing={3} style={{ marginTop: '1px', marginLeft: '0px' }}>
+                                {
+                                    inputValue.map(inpValue => <DisplayCalculator inpValue={inpValue}></DisplayCalculator>)
+                                }
+                            </Grid>
+
+                        </Box>
+                    </Box>
+
+                </CardContent>
+
+            </Card>
+            <div>
+
+            </div>
+
+            {/* <Card sx={{ border: 1, borderColor: 'grey.500', borderRadius: 4, marginTop: 1, height: '220px'}}>
                 <CardContent>
                     <Grid >
                         <Box>
@@ -67,8 +103,8 @@ const Calculator = () => {
                     </Grid>
                 </CardContent>
 
-            </Card>
-       </Box>
+            </Card> */}
+        </Box>
     );
 };
 
